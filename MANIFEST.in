@@ -1,0 +1,3 @@
+include make.py
+exclude setup.py
+recursive-include input *
