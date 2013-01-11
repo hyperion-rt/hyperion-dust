@@ -8,7 +8,7 @@ here.
 
 The published properties are taken from:
 
-    http://www.astro.princeton.edu/~draine/dust/dustmix.html
+  http://www.astro.princeton.edu/~draine/dust/dustmix.html
 
 The description from the website reads:
 
