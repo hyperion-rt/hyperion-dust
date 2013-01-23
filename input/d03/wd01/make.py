@@ -67,12 +67,12 @@ for line in f.readlines():
     r_v = float(cols[0])
     b_c = float(cols[1])
     case = cols[2].decode('utf-8')
-    
+
     # Graphite
     alpha, beta, a_t, a_c, C = [float(col) for col in cols[3:8]]
     n = dn_over_da(a, C, a_t, a_c, alpha, beta, b_c * 1.e-5)
     np.savetxt('sizes/wd01_graphite_%3.1f_%3.1f_%1s'
-               % (r_v, b_c, case), np.vstack([a, n]).transpose(),fmt="%12.4e")
+               % (r_v, b_c, case), np.vstack([a, n]).transpose(), fmt="%12.4e")
 
     # Silicate
     alpha, beta, a_t, C = [float(col) for col in cols[8:12]]

@@ -28,15 +28,15 @@ for r_v in [3.1, 4.0, 5.5]:
             try:
 
                 # Silicate
-                s = np.loadtxt('sizes/wd01_silicate_%3.1f_%3.1f_%1s' \
+                s = np.loadtxt('sizes/wd01_silicate_%3.1f_%3.1f_%1s'
                                % (r_v, b_c, case))
-                ax_s.loglog(s[:, 0], s[:, 1] * s[:, 0] ** 4. * 1.e17,\
+                ax_s.loglog(s[:, 0], s[:, 1] * s[:, 0] ** 4. * 1.e17,
                             color='black')
 
                 # Graphite
-                g = np.loadtxt('sizes/wd01_graphite_%3.1f_%3.1f_%1s' \
+                g = np.loadtxt('sizes/wd01_graphite_%3.1f_%3.1f_%1s'
                                % (r_v, b_c, case))
-                ax_g.loglog(g[:, 0], g[:, 1] * g[:, 0] ** 4. * 1.e17, \
+                ax_g.loglog(g[:, 0], g[:, 1] * g[:, 0] ** 4. * 1.e17,
                             color='black')
 
             except IOError:

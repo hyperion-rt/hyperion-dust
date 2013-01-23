@@ -24,6 +24,7 @@ def process_whitney_format(filename):
     d.write(os.path.join('dust_files', os.path.basename(filename) + '.hdf5'))
     d.plot(os.path.join('dust_files', os.path.basename(filename) + '.png'))
 
+
 def process_bhmie_format(directory):
     print('-' * 72)
     print("Processing {0}".format(directory))

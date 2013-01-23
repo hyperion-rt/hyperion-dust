@@ -8,5 +8,4 @@ setup(name='hyperion-dust',
       summary='Library of dust files for the Hyperion radiative transfer code'
       packages=[],
       license='BSD'
-     )
-
+      )
