@@ -5,7 +5,7 @@ setup(name='hyperion-dust',
       url='http://www.hyperion-rt.org',
       author='Thomas Robitaille',
       author_email='thomas.robitaille@gmail.com',
-      summary='Library of dust files for the Hyperion radiative transfer code'
+      summary='Library of dust files for the Hyperion radiative transfer code',
       packages=[],
       license='BSD'
       )
