@@ -51,7 +51,7 @@ def dn_over_da(a, C, a_t, a_c, alpha, beta, b_c):
 
 # Generate grain sizes
 n_a = 1000
-amin = 1.e-4  # microns
+amin = 3.5e-4  # microns
 amax = 100.  # microns
 a = np.logspace(np.log10(amin), np.log10(amax), n_a)
 
