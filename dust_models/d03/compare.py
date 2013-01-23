@@ -9,6 +9,11 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 
+RATIO = {}
+RATIO['3.1_6.0'] = 1.870E-26
+RATIO['4.0_4.0'] = 1.969E-26
+RATIO['5.5_3.0'] = 2.199E-26
+
 for model in ['3.1_6.0', '4.0_4.0', '5.5_3.0']:
 
     orig = np.loadtxt('d03_{model}_A.orig'.format(model=model))
@@ -16,7 +21,7 @@ for model in ['3.1_6.0', '4.0_4.0', '5.5_3.0']:
 
     wav = np.loadtxt('d03_{model}_A/d03_{model}_A.wav'.format(model=model))
     new = np.loadtxt('d03_{model}_A/d03_{model}_A.chi'.format(model=model))
-    ax.loglog(wav, new * 1.67e-24, color='red', lw=1)
+    ax.loglog(wav, new * RATIO[model], color='red', lw=1)
 
 fig.savefig('comparison_chi.png')
 
