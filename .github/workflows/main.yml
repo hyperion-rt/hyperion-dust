@@ -27,6 +27,9 @@ jobs:
       upload_to_pypi: false
       test_extras: test
       test_command: pytest --pyargs hyperion_dust
+      # The default is the latest Python version, which h5py may not have
+      # wheels for yet
+      python-version: '3.14'
 
   upload:
     if: startsWith(github.ref, 'refs/tags/v')
