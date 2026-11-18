@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hyperion-dust"
+description = "Library of dust models for the Hyperion radiative transfer code"
+readme = "README.md"
+authors = [{name = "Thomas Robitaille", email = "thomas.robitaille@gmail.com"}]
+license = "BSD-2-Clause"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+    "hyperion>=1.0.0b1",
+    "astropy",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "http://www.hyperion-rt.org"
+Repository = "https://github.com/hyperion-rt/hyperion-dust"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/hyperion_dust",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["hyperion_dust"]
+# Only the tables that the dust models are built from are installed. The
+# files used to produce those tables (bhmie parameter files, refractive
+# indices, size distributions, Draine's original tables) stay in the
+# repository and the source distribution.
+exclude = [
+    "/hyperion_dust/data/ri-data",
+    "/hyperion_dust/data/d03/wd01",
+    "/hyperion_dust/data/d03/*.in",
+    "/hyperion_dust/data/d03/*.orig",
+    "/hyperion_dust/data/d03/compare.py",
+    "/hyperion_dust/data/d03/README.md",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["hyperion_dust"]

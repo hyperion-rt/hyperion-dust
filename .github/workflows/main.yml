@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  tests:
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/tox.yml@v3
+    with:
+      envs: |
+        - linux: py311-test
+        - macos: py312-test
+        - windows: py313-test
+        - linux: py314-test
+
+        # Development version of Hyperion, built from source
+        - linux: py313-test-devdeps
+
+  publish:
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/publish_pure_python.yml@v3
+    with:
+      test_extras: test
+      test_command: pytest --pyargs hyperion_dust
+    secrets:
+      pypi_token: ${{ secrets.PYPI_TOKEN }}

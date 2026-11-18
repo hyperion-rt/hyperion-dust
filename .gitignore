@@ -1,1 +1,6 @@
-dust_files
+__pycache__
+*.egg-info
+build
+dist
+.tmp
+.tox
