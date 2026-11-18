@@ -123,6 +123,10 @@ def get_dust_filename(
     for each version of this package and of Hyperion, so upgrading either
     will cause the files to be generated again.
 
+    The version of this package is stored in the ``hyperion_dust_version``
+    attribute of the file. This is not the case for dust objects returned by
+    `get_dust` that are then written out with Hyperion.
+
     Parameters
     ----------
     name : str
@@ -171,6 +175,9 @@ def get_dust_filename(
     if os.path.exists(filename):
         return filename
 
+    import h5py
+    import numpy as np
+
     dust = get_dust(
         name,
         sublimation_mode=sublimation_mode,
@@ -185,6 +192,12 @@ def get_dust_filename(
     os.close(handle)
     try:
         dust.write(temporary)
+        # Record which version of the tables the file was generated from
+        # (Hyperion records its own version in python_version)
+        with h5py.File(temporary, "r+") as f:
+            f.attrs["hyperion_dust_version"] = np.bytes_(
+                _package_version("hyperion-dust")
+            )
         os.replace(temporary, filename)
     finally:
         if os.path.exists(temporary):

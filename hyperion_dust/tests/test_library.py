@@ -1,4 +1,5 @@
 import os
+from importlib.metadata import version
 
 import h5py
 import numpy as np
@@ -81,6 +82,7 @@ def test_get_dust_filename(tmp_path):
 
     with h5py.File(filename, "r") as f:
         assert f.attrs["sublimation_mode"] == b"no"
+        assert f.attrs["hyperion_dust_version"] == version("hyperion-dust").encode()
         assert "optical_properties" in f
         assert "emissivities" in f
 
