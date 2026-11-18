@@ -67,4 +67,6 @@ filename = get_dust_filename('d03_5.5_3.0_A', sublimation_mode='fast',
 The file is generated the first time it is requested, which takes about a
 second, and is then re-used. Files are stored in the astropy cache directory
 by default (pass `cache_dir=` to use a different location) and are kept
-separately for each version of this package and of Hyperion.
+separately for each version of this package and of Hyperion. The version of
+this package that a file was generated with is stored in its
+`hyperion_dust_version` attribute.
