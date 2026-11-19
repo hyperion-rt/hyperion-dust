@@ -1,5 +1,5 @@
 # This workflow takes the GitHub release notes and updates the changelog on the
-# master branch with the body of the release notes, thereby keeping a log in
+# main branch with the body of the release notes, thereby keeping a log in
 # the git repo of the changes.
 
 name: "Update Changelog"
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: master
+          ref: main
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@1171d74932456fd2049c486b8757956a6adcc11b # v1.13.0
@@ -28,6 +28,6 @@ jobs:
       - name: Commit updated CHANGELOG
         uses: stefanzweifel/git-auto-commit-action@d0b01107b5db882071f96de5dd4b54961ea93f4c # v7.2.1
         with:
-          branch: master
+          branch: main
           commit_message: Update CHANGELOG
           file_pattern: CHANGES.md
