@@ -21,10 +21,23 @@ the (much larger) HDF5 files do not need to be distributed.
 | `d03_4.0_4.0_A` | Draine (2003) Milky Way model "A" with R_V=4.0 |
 | `d03_5.5_3.0_A` | Draine (2003) Milky Way model "A" with R_V=5.5 |
 
-The opacities are per unit mass of dust. The Draine (2003) models were
-computed with a wrapper around the bhmie code and do not reproduce the
-published properties exactly since there is no special treatment of small
-grains (see `hyperion_dust/data/d03/README.md`).
+The opacities for the Draine (2003) models are per unit mass of dust, while
+those for the Kim, Martin & Hendry (1994) models are per unit mass of gas and
+dust, assuming a gas-to-dust ratio of 141.84. The densities in a Hyperion
+model therefore need to be dust densities when using the former, and gas and
+dust densities when using the latter.
+
+The Draine (2003) models and `kmh94_3.1_full` were computed with
+[bhmie](https://github.com/hyperion-rt/bhmie), a wrapper around the code by
+Bohren and Huffman. The Draine (2003) models do not reproduce the published
+properties exactly since there is no special treatment of small grains (see
+`hyperion_dust/data/d03/README.md`), and the parameter file for
+`kmh94_3.1_full` is the `kmh94_full` example in the bhmie repository.
+`kmh94_3.1_hg` was not computed with bhmie but is the dust file distributed
+with HOCHUNK, the radiative transfer code by B. Whitney et al., and is the
+one to use to reproduce results from that code. Since the two Kim, Martin &
+Hendry (1994) models were computed independently, their opacities and albedos
+also differ by a few percent, and not only in how scattering is treated.
 
 The names can be listed with:
 
